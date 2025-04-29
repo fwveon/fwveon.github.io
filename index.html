@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Protected Link Page</title>
+  <script>
+    const bypassDomains = ["bypass.vip", "bypass.city"];
+    const referrer = document.referrer;
+
+    for (const domain of bypassDomains) {
+      if (referrer.includes(domain)) {
+        document.write("DO NOT bypass the links!");
+        throw new Error("Bypass detected - script stopped");
+      }
+    }
+  </script>
+  <!-- Linkvertise script -->
+  <script src="https://publisher.linkvertise.com/cdn/linkvertise.js"></script>
+</head>
+<body>
+  <h1>Welcome!</h1>
+  <p>Click the link below:</p>
+  <a href="https://linkvertise.com">Continue to link</a>
+</body>
+</html>
