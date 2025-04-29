@@ -1,23 +1,99 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>Link Page</title>
-    <script>
-      const bypassDomains = ["bypass.vip", "bypass.city", "bypass.zone", "universalbypass"];
-      const ref = document.referrer.toLowerCase();
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Link Access</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
 
-      for (const domain of bypassDomains) {
-        if (ref.includes(domain)) {
-          document.write("<h1 style='color:red;'>DO NOT bypass the links!</h1>");
-          throw new Error("Bypass detected");
-        }
+    .container {
+      background: #1f1f1f;
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+      max-width: 400px;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      background: #00ffff;
+      color: #000;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: 0.3s ease;
+      box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff;
+      display: block;
+      margin: 10px auto;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #00cccc;
+      box-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
+    }
+
+    #step2 {
+      display: none;
+      margin-top: 20px;
+    }
+  </style>
+  <script>
+    function showStep2() {
+      document.getElementById("rekoniseBtn").disabled = true;
+      setTimeout(() => {
+        document.getElementById("step2").style.display = "block";
+        document.getElementById("rekoniseBtn").innerText = "Checkpoint Complete!";
+      }, 6000);
+    }
+
+    const bypassDomains = ["bypass.vip", "bypass.city", "bypass.zone", "universalbypass"];
+    const ref = document.referrer.toLowerCase();
+
+    for (const domain of bypassDomains) {
+      if (ref.includes(domain)) {
+        document.write("<h1 style='color:red;'>DO NOT bypass the links!</h1>");
+        throw new Error("Bypass detected");
       }
-    </script>
-    <script src="https://publisher.linkvertise.com/cdn/linkvertise.js"></script>
-  </head>
-  <body>
-    <h1>Welcome to my link page!</h1>
-    <a href="https://linkvertise.com">Click here to continue</a>
-  </body>
+    }
+  </script>
+  <script src="https://publisher.linkvertise.com/cdn/linkvertise.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Access the Script</h1>
+    <p>Complete the steps below to unlock the script:</p>
+
+    <a href="https://discord.gg/9xQY2meTaP" class="btn" target="_blank">Join Discord</a>
+    <a href="https://www.youtube.com/@SeikoGT_" class="btn" target="_blank">Subscribe on YouTube</a>
+    <a href="https://rekonise.com/YOUR-REKONISE-CHECKPOINT" class="btn" target="_blank" id="rekoniseBtn" onclick="showStep2()">Step 3</a>
+
+    <div id="step2">
+      <a href="https://linkvertise.com" class="btn" target="_blank">Get Script</a>
+    </div>
+  </div>
+</body>
 </html>
